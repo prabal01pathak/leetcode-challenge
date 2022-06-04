@@ -6,12 +6,12 @@ from typing import List
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         hash_table = {}
-        for index, value in enumerate(nums):
-            hash_table[value] = index
         for index in range(len(nums)):
             required_value = target - nums[index]
-            if required_value in hash_table and not index == hash_table[required_value]:
-                return [index, hash_table[required_value]]        
+            if required_value in hash_table:
+                value = [hash_table[required_value], index]        
+                return value
+            hash_table[nums[index]] = index
         return []
 
 
